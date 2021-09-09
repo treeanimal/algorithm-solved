@@ -1,4 +1,4 @@
-# CodingTest
+# algorithm-solved
 백준, 프로그래머스 코딩테스트 문제풀이입니다.
 
 ### 개발 언어 및 환경
