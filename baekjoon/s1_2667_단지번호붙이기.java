@@ -3,7 +3,7 @@ package baekjoon;
 import java.io.*;
 import java.util.*;
 
-public class s_2667_단지번호붙이기 {
+public class s1_2667_단지번호붙이기 {
 
 	static int[][] graph;
 	static int visited[];
