@@ -1,11 +1,11 @@
 package baekjoon;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class s3_10974모든순열 {
 	static int N;
-	static int[] arr;
+	static int[] arr;	
 	static StringBuilder sb = new StringBuilder();
 	static int[] result;
 	static boolean[] visited;
