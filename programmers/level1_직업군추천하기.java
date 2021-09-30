@@ -1,3 +1,4 @@
+package programmers;
 
 public class level1_직업군추천하기 {
 	
