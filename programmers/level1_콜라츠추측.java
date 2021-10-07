@@ -6,6 +6,10 @@ public class level1_콜라츠추측 {
 		int answer = 0;
 
 		while (num != 1) {
+			if(num == 1) {
+				answer = 0;
+				break;
+			}
 			if (num % 2 == 0) {
 				num = num / 2;
 			} else {
@@ -18,6 +22,7 @@ public class level1_콜라츠추측 {
 				answer = -1;
 				break;
 			}
+			
 		}
 		return answer;
 	}
