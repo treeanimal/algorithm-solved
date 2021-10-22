@@ -1,73 +1,73 @@
 package baekjoon;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class s3_2606_바이러스 {
 
-	static int N;
-	static int M;
-	static int[][] graph;
-	static boolean[] visited;
-	static int result;
-	
-	static int bfs(int start) {
-		Queue<Integer> q = new LinkedList<Integer>();
-		
-		q.add(start);
-		visited[start] = true;
-		
-		while(!q.isEmpty()) {
-
-			start = q.poll();
-			result += 1;
-			
-			for(int i = 1; i < visited.length; i++) {
-				if( i != start && visited[i] == false && graph[start][i] == 1) {
-					visited[i] = true;
-					q.add(i);
-				}
-			}
-			
-		}
-		
-		return result;
-	}
+	public static int N;
+	public static boolean[] visited;
+	public static int[][] array;
+	public static int count;
 	
 	public static void main(String[] args) throws Exception{
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st;
-		
 		N = Integer.parseInt(br.readLine());
-		M = Integer.parseInt(br.readLine());
+		int T = Integer.parseInt(br.readLine());
 		
-		graph = new int[N + 1][N + 1];
 		visited = new boolean[N + 1];
-		
-		
-		for(int i = 0; i < M; i ++) {
-			st = new StringTokenizer(br.readLine());
+		array = new int[N + 1][N + 1];
+		for(int i = 0; i < T; i ++) {
+			StringTokenizer st = new StringTokenizer(br.readLine());
 			
-			int n1 = Integer.parseInt(st.nextToken());
-			int n2 = Integer.parseInt(st.nextToken());
+			int one = Integer.parseInt(st.nextToken());
+			int two = Integer.parseInt(st.nextToken());
 			
-			graph[n1][n2] = graph[n2][n1] = 1;
-			
+			array[one][two] = array[two][one] = 1;
 		}
 		
-		for(int i = 1; i < N + 1; i++) {
-			visited[i] = false;
+		dfs(1);
+		System.out.println(count - 1);
+		count = 0;
+		bfs(1);
+		System.out.println(count - 1);
+	}
+	
+	static void dfs(int start) {
+
+		visited[start] = true;
+		count++;
+		
+		for(int i = 1; i <= N; i++) {
+			
+			if(array[start][i] == 1 && visited[i] == false) {
+				dfs(i);
+			}
 		}
-		
-//		for(int i = 0; i < N + 1; i++) {
-//			for(int j = 0; j < N + 1; j++) {
-//				System.out.print(graph[i][j] + " ");
-//			}
-//			System.out.println();
-//		}
-		
-		System.out.println(bfs(1) - 1);
 		
 	}
+	
+	static void bfs(int start) {
+		Queue<Integer> queue = new LinkedList<Integer>();
+		queue.add(start);
+		
+		visited[start] = true;
+		
+		while(!queue.isEmpty()) {
+			int node = queue.poll();
+			count++;
+			for(int i = 1; i <= N; i++) {
+				
+				if(array[node][i] == 1 && visited[i] == false) {
+					visited[i] = true;
+					queue.add(i);
+				}
+			}
+		}
+	}
+
 }
