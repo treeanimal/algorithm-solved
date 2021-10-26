@@ -1,6 +1,5 @@
 package Inflearn;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class Remove_Overlab_Word {
