@@ -2,7 +2,7 @@ package Inflearn;
 
 import java.util.Scanner;
 
-public class Remove_Overlab_Word {
+public class String6_중복문자제거 {
 	
 	public static void main(String[] args) throws Exception{
 		Scanner sc = new Scanner(System.in);

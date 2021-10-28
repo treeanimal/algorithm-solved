@@ -1,6 +1,6 @@
 package programmers;
 
-public class level1_2021_kakao_blind_신규아이디추천 {
+public class level1_2021KakaoBlind_신규아이디추천 {
 
 	public String solution(String new_id) {
 		String answer = "";
@@ -32,7 +32,7 @@ public class level1_2021_kakao_blind_신규아이디추천 {
 	}
 
 	public static void main(String[] args) {
-		level1_2021_kakao_blind_신규아이디추천 a = new level1_2021_kakao_blind_신규아이디추천();
+		level1_2021KakaoBlind_신규아이디추천 a = new level1_2021KakaoBlind_신규아이디추천();
 //		System.out.println(a.solution("...!@BaT#*..y.abcdefghijklm"));
 		System.out.println(a.solution("=.="
 ));
