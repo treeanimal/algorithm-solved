@@ -18,23 +18,30 @@ public class s2_16926_배열돌리기 {
 		int M = Integer.parseInt(st.nextToken());
 		int R = Integer.parseInt(st.nextToken());
 
-		int[][] array = new int[N][N];
+		int[][] array = new int[N][M];
 
+		// 배열 초기화
 		for (int i = 0; i < N; i++) {
 			st = new StringTokenizer(br.readLine());
 			for (int j = 0; j < M; j++) {
 				array[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
-
+		
+		
 		int group_value = Math.min(N, M) / 2;
 
+		// 전체 회전 횟수
 		for (int i = 0; i < R; i++) {
 
+			// 회전 배열의 수
 			for (int j = 0; j < group_value; j++) {
+				
+				// 배열의 x, y좌표 설정
 				int x = j;
 				int y = j;
 
+				// 시작 값
 				int value = array[x][y];
 
 				int idx = 0;
