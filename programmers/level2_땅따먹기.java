@@ -1,32 +1,27 @@
 package programmers;
 
+import java.util.Arrays;
+
 public class level2_¶¥µû¸Ô±â {
 
 	int solution(int[][] land) {
-		int answer = 0;
 
-		int max_index = -1;
-		for (int i = 0; i < land.length; i++) {
-			
-			int max = Integer.MIN_VALUE;
-			int index = 0;
-			
-			for (int j = 0; j < 4; j++) {
-				
-				int num = land[i][j];
-				
-				if (num > max && index != max_index) {
-					max = num;
-					max_index = index;
-				}
-				
-				index++;
-				
-			}
-			System.out.println(max);
-			answer += max;
+		for (int i = 1; i < land.length; i++) {
+			land[i][0] += Math.max(Math.max(land[i - 1][1], land[i - 1][2]), land[i - 1][3]);
+			land[i][1] += Math.max(Math.max(land[i - 1][0], land[i - 1][2]), land[i - 1][3]);
+			land[i][2] += Math.max(Math.max(land[i - 1][1], land[i - 1][0]), land[i - 1][3]);
+			land[i][3] += Math.max(Math.max(land[i - 1][1], land[i - 1][2]), land[i - 1][0]);
 		}
 
-		return answer;
+		int[] answer = land[land.length - 1];
+		Arrays.sort(answer);
+
+		return answer[answer.length - 1];
 	}
+
+	public static void main(String[] args) {
+		level2_¶¥µû¸Ô±â a = new level2_¶¥µû¸Ô±â();
+		System.out.println(a.solution(new int[][] { { 1, 2, 3, 5 }, { 5, 6, 7, 8 }, { 4, 3, 2, 1 } }));
+	}
+
 }
