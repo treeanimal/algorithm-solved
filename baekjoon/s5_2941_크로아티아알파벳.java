@@ -9,32 +9,61 @@ public class s5_2941_크로아티아알파벳 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String str = br.readLine();
 
-		char[] c_arr = str.toCharArray();
-
 		int answer = 0;
-		for (int i = 0; i < c_arr.length; i++) {
-			if (c_arr[i] == '=' || c_arr[i] == '-' || c_arr[i] == 'j' || c_arr[i] == 'z') {
-				
-				if(c_arr[i] == 'j') {
-					if(c_arr[i - 1] == 'l' || c_arr[i - 1] == 'n') {
-						continue;
-					}else {
-						answer++;
+
+		for (int i = 0; i < str.length(); i++) {
+
+			char c = str.charAt(i);
+
+			if (c == 'c') {
+				if (i < str.length() - 1) {
+					if (str.charAt(i + 1) == '=') {
+						i++;
+					} else if (str.charAt(i + 1) == '-') {
+						i++;
 					}
 				}
-				
-				if(c_arr[i]== 'z') {
-					if(c_arr[i - 1] == 'd') {
-						continue;
-					}else {
-						answer++;
+			} else if (c == 'd') {
+				if (i < str.length() - 1) {
+					if (str.charAt(i + 1) == 'z') {
+						if (i < str.length() - 2) {
+							if (str.charAt(i + 2) == '=') {
+								i += 2;
+							}
+						}
+					} else if (str.charAt(i + 1) == '-') {
+						i++;
 					}
 				}
-				
-				continue;
+			} else if (c == 'l') {
+				if (i < str.length() - 1) {
+					if (str.charAt(i + 1) == 'j') {
+						i++;
+					}
+				}
+
+			} else if (c == 'n') {
+				if (i < str.length() - 1) {
+					if (str.charAt(i + 1) == 'j') {
+						i++;
+					}
+				}
+
+			} else if (c == 's') {
+				if (i < str.length() - 1) {
+					if (str.charAt(i + 1) == '=') {
+						i++;
+					}
+				}
+
+			} else if (c == 'z') {
+				if (i < str.length() - 1) {
+					if (str.charAt(i + 1) == '=') {
+						i++;
+					}
+				}
 			}
-			
-			answer++;
+
 		}
 
 		System.out.println(answer);
